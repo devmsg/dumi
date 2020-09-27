@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - support/github-ci
   pull_request:
     branches:
       - master

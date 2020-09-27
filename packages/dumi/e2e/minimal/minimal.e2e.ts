@@ -40,10 +40,6 @@ describe('minimal', () => {
       throw err;
     });
 
-    child.on('exit', code => {
-      process.exit(code);
-    });
-
     process.on('exit', () => {
       child.kill('SIGINT');
     });
@@ -69,12 +65,6 @@ describe('minimal', () => {
   test('build', done => {
     fork(SCRIPT_PATH, ['build'], {
       cwd: __dirname,
-      env: {
-        ...process.env,
-        PORT: '12341',
-        BROWSER: 'none',
-      },
-      silent: true,
     }).on('exit', code => {
       expect(code).toEqual(0);
       done();
