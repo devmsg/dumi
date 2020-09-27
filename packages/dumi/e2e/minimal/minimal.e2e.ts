@@ -19,7 +19,6 @@ describe('minimal', () => {
         PORT: '12341',
         BROWSER: 'none',
       },
-      silent: true,
     });
 
     child.on('message', async args => {
