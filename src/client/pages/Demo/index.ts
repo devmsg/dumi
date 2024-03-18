@@ -1,6 +1,5 @@
-import { useDemo, useLiveDemo, useParams } from 'dumi';
+import { useDemo, useLiveDemo, useParams, useRenderer } from 'dumi';
 import { ComponentType, createElement, useEffect, type FC } from 'react';
-import { useRenderer } from '../../theme-api/useRenderer';
 import './index.less';
 
 const DemoRenderPage: FC = () => {

@@ -124,9 +124,11 @@ function emitDemo(
 export const demos = {
   {{#demos}}
   '{{{id}}}': {
+    id: "{{{id}}}",
     {{#component}}
     component: {{{component}}},
     {{/component}}
+    renderOpts: {{{renderRenderOpts}}},
     asset: {{{renderAsset}}},
     context: {{{renderContext}}},
     renderOpts: {{{renderRenderOpts}}},

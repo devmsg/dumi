@@ -1,20 +1,20 @@
 import type { MetaCheckerOptions } from '@dumijs/vue-meta';
 import { createProject, dumiTransfomer } from '@dumijs/vue-meta';
 import {
-  IBaseApiParserOptions,
-  ILanguageMetaParser,
-  IPatchFile,
+  BaseApiParserOptions,
+  LanguageMetaParser,
+  PatchFile,
   createApiParser,
-} from 'dumi/tech-stack-utils';
+} from 'dumi';
 import path from 'path';
 import { fsExtra } from 'umi/plugin-utils';
 
-export interface VueParserOptions extends IBaseApiParserOptions {
+export interface VueParserOptions extends BaseApiParserOptions {
   tsconfigPath?: string;
   checkerOptions?: MetaCheckerOptions;
 }
 
-class VueMetaParser implements ILanguageMetaParser {
+class VueMetaParser implements LanguageMetaParser {
   protected entryFile: string;
   protected resolveDir: string;
   private checkerOptions!: MetaCheckerOptions;
@@ -32,7 +32,7 @@ class VueMetaParser implements ILanguageMetaParser {
       checkerOptions: this.checkerOptions,
     });
   }
-  async patch(file: IPatchFile) {
+  async patch(file: PatchFile) {
     const { event, fileName } = file;
     switch (event) {
       case 'add':

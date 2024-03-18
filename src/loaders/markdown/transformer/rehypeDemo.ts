@@ -247,7 +247,7 @@ export default function rehypeDemo(
                 ? [vFile.data.frontmatter!.atomId]
                 : [],
               fileAbsPath: '',
-              lang: codeNode.data!.lang,
+              lang: (codeNode.data?.lang as string) || 'tsx',
               entryPointCode: codeType === 'external' ? undefined : codeValue,
               resolver: opts.resolver,
               techStack,

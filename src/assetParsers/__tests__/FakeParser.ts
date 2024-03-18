@@ -1,13 +1,11 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-exports.FakeParser = void 0;
-const dist_1 = require('../../../dist');
-exports.FakeParser = (0, dist_1.createApiParser)({
+import { AtomAssetsParserResult, createApiParser } from '../../../dist';
+
+export const FakeParser = createApiParser({
   filename: __filename,
   worker: class {
     patch() {}
     parse() {
-      return new Promise((resolve) => {
+      return new Promise<AtomAssetsParserResult>((resolve) => {
         setTimeout(() => {
           resolve({
             components: {},
